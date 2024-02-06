@@ -3,45 +3,26 @@
  * https://leetcode.com/problems/sort-an-array/description/
  */
 public class ExtraCredit1_SortAnArray {
-    /** Quick Sort
-     * partition the array such that the left part elements are smaller than the pivot
-     * and the right part elements are larger than the pivot
-     * Do the partition recursively until there are <= 1 elements on both side
-     * Time: O(n^2) in the worst case; O(n * log n) in the best case
-     * Space: O(n) in the worst case, stack expenses in recursion
+    /** Shell Sort
+     * Partially sort array using different gap
+     * gap start from length/2, reduce the gap by half in every iteration
+     * all the way down to 1 (when it is insertion sort, but now we have a partially sorted array)
+     * reduce the number of shift
+     * Time: O(n^2), Space: O(1)
      * */
     public int[] sortArray(int[] nums) {
-        quickSort(nums, 0, nums.length - 1);
-        return nums;
-    }
-
-    private void quickSort(int[] nums, int left, int right) {
-        if (left >= right) return;
-        int mid = partition(nums, left, right);
-        quickSort(nums, left, mid - 1);
-        quickSort(nums, mid + 1, right);
-    }
-
-    private int partition(int[] nums, int left, int right) {
-        //let the right most element to be pivot (partition)
-        int pivot = nums[right];
-        int i = left;
-        int temp;
-        for (int j = left; j <= right - 1; j++) {
-            // When an element at right is smaller than pivot, put it on the left side by swap
-            if (nums[j] < pivot) {
-                //swap element at index i and j
-                temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-                i++;
+        int len = nums.length;
+        for (int gap = len / 2; gap >= 1; gap/=2) {
+            for (int i = gap; i < len; i++) {
+                int curr = nums[i];
+                int j = i - gap;
+                while (j >= 0 && nums[j] > curr) {
+                    nums[j + gap] = nums[j];
+                    j -= gap;
+                }
+                nums[j + gap] = curr;
             }
         }
-        //swap the pivot to be the partition
-        temp = nums[i];
-        nums[i] = nums[right];
-        nums[right] = temp;
-        //return the index of partition
-        return i;
+        return nums;
     }
 }
