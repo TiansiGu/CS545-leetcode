@@ -21,22 +21,26 @@ class ListNode {
 public class ExtraCredit1_InsertionSortList {
     public ListNode insertionSortList(ListNode head) {
         ListNode dummy = new ListNode(); //don‘t initialize dummy with next can create an end for the sorted list
-        ListNode curr = head;
+        ListNode cur = head;
         // outer loop, keep the start of unsorted list
-        while (curr != null) {
-            // keep record of the pre node of the position should be inserted
-            ListNode prev = dummy;
-            // find the position to insert the current node
+        while (cur != null) {
+            // keep record of the pre node of the position to be inserted
+            ListNode pre = dummy;
+            ListNode p2 = dummy.next;
+            // find insertion position
             // due to single linked list: find from front to end
-            while (prev.next != null && prev.next.val <= curr.val) {
-                prev = prev.next;
+            while (p2 != null && p2.val <= cur.val) {
+                pre = p2;
+                p2 = p2.next;
             }
-            ListNode next = curr.next;
-            // insert the current node to the sorted list
-            curr.next = prev.next;
-            prev.next = curr;
-            // moving on to the next iteration
-            curr = next;
+            // Insertion
+            // keep curr.next to access it in the future
+            ListNode next = cur.next;
+            // insert the current node by editing next pointers
+            cur.next = p2;
+            pre.next = cur;
+            // go to the next node
+            cur = next;
         }
 
         return dummy.next;
