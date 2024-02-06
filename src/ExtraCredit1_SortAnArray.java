@@ -10,19 +10,19 @@ public class ExtraCredit1_SortAnArray {
      * Time: O(n^2) in the worst case; O(n * log n) in the best case
      * Space: O(n) in the worst case, stack expenses in recursion
      * */
-    public static int[] sortArray(int[] nums) {
+    public int[] sortArray(int[] nums) {
         quickSort(nums, 0, nums.length - 1);
         return nums;
     }
 
-    private static void quickSort(int[] nums, int left, int right) {
+    private void quickSort(int[] nums, int left, int right) {
         if (left >= right) return;
         int mid = partition(nums, left, right);
         quickSort(nums, left, mid - 1);
         quickSort(nums, mid + 1, right);
     }
 
-    private static int partition(int[] nums, int left, int right) {
+    private int partition(int[] nums, int left, int right) {
         //let the right most element to be pivot (partition)
         int pivot = nums[right];
         int i = left;
