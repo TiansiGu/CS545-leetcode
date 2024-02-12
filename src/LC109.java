@@ -6,29 +6,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/** Definition for singly-linked list *
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
-
-/** Definition for a binary tree node.*/
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
-
+/**
+ * Recursion
+ * Time: O(n), n is the node number of input
+ * Space: O(n), list takes O(n), recursion stack expense is O(lgn) -> In total is O(n)
+ */
 public class LC109 {
     // Solution func
     public TreeNode sortedListToBST(ListNode head) {
