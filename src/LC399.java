@@ -11,7 +11,7 @@ public class LC399 {
     }
 
     /**
-     * Graph - DFS
+     * Graph - DFS, Recursion
      * There are N pairs in equations, M queries
      * Time: O(M*N)
      * Space: O(N)
