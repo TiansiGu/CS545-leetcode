@@ -10,6 +10,12 @@ public class LC399 {
         Pair(String dest, double val) {this.dest = dest; this.val = val;}
     }
 
+    /**
+     * Graph - DFS
+     * There are N pairs in equations, M queries
+     * Time: O(M*N)
+     * Space: O(N)
+     */
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         // Create Graph
         Map<String, List<Pair>> graph = new HashMap<>();
