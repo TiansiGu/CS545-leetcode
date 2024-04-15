@@ -19,7 +19,7 @@ public class LC347 {
      * takes O(lgk). And there are at most n k-value pairs in the map. In total takes O(n * logk) time
      * Space: O(n), O(n + k) -> O(n)
      */
-    public int[] topKFrequent(int[] nums, int k) {
+    public int[] getKopKFrequent(int[] nums, int k) {
         // get each number's frequency
         Map<Integer, Integer> map = new HashMap<>();
         for (int n : nums) {
