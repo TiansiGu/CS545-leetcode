@@ -41,7 +41,7 @@ public class LC133 {
     Map<Node, Node> visited = new HashMap<>(); // records of copied nodes
 
     /**
-     * Depth-first Search solution
+     * Graph, Depth-first Search solution
      * Let V be the number of vertices in the graph, E be the number of edges
      * Time: O(V + E); Space: O(V)
      * @param node input graph
