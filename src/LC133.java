@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class LC133 {
     /** Definition for Node class */
-    class Node {
+    private class Node {
         public int val; // value of a Node
         public List<Node> neighbors; // a list of neighbor Nodes of a Node
 
